@@ -9,7 +9,7 @@ spec:
     helm: 
       valueFiles:
       - values.yaml
-    path: kube-prometheus-stack/kube-prometheus-stack
+    path: kube-prometheus-stack
     repoURL: git@github.com:olubunmi-devops/kube-prometheus-stack.git
     targetRevision: HEAD
   destination:
