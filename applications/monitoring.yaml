@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring-stack
+  namespace: argocd
+spec:
+  project: default
+  source:
+    helm: 
+      valueFiles:
+      - values.yaml
+    path: kube-prometheus-stack/kube-prometheus-stack
+    repoURL: git@github.com:olubunmi-devops/kube-prometheus-stack.git
+    targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
